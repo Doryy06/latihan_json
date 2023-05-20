@@ -23,7 +23,7 @@
                          <span class="visually-hidden">Loading...</span>
                      </div>
                      <div class="table-responsive">
-                         <table class="table">
+                         <table class="table text-center" >
                              <thead class="table-dark">
                                  <tr>
                                      <th>Nama</th>
@@ -58,8 +58,10 @@
                  }
              })
          }
+
      })
      </script>
+     
  </body>
 
  </html>

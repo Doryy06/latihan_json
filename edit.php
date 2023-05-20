@@ -1,16 +1,35 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit JSON Data</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Mendapatkan data JSON dari file atau API
+            $.getJSON('data.json', function (data) {
+                // Mengedit data JSON
+                data.key = 'nilai baru';
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="bootstrap-5.1.3-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="bootstrap-4.6.2-dist/css/bootstrap.css">
-
-    <title>Hello, world!</title>
+                // Menyimpan data yang sudah diubah
+                $.ajax({
+                    type: 'POST',
+                    url: 'simpanData.php',
+                    data: JSON.stringify(data),
+                    contentType: 'application/json',
+                    success: function () {
+                        console.log('Data berhasil diubah');
+                    },
+                    error: function () {
+                        console.log('Terjadi kesalahan saat menyimpan data');
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -78,5 +97,4 @@
     })
     </script>
 </body>
-
 </html>
